@@ -89,10 +89,8 @@ fi
 echo ""
 echo "🎉 Setup complete! Starting the application..."
 echo ""
-echo "🌐 The resume builder will be available at: http://localhost:5000"
-echo ""
-echo "Press Ctrl+C to stop the server"
-echo ""
+echo -e "\n🌐 The resume builder will be available at: http://localhost:5001"
+echo -e "   Press Ctrl+C to stop the server\n"
 
 # Start the application
-python3 app.py
+python3 app.py --port=5001

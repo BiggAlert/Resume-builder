@@ -24,21 +24,6 @@
                                     <i class="fas fa-times me-2"></i>Clear & Start Over
                                 </button>
                             </form>
-                            <form method="POST" action="{{ url_for('download_pdf') }}" style="display: inline;" id="pdfForm">
-                                <input type="hidden" name="full_name" value="{{ resume_data.get('full_name', '') }}">
-                                <input type="hidden" name="email" value="{{ resume_data.get('email', '') }}">
-                                <input type="hidden" name="phone" value="{{ resume_data.get('phone', '') }}">
-                                <input type="hidden" name="location" value="{{ resume_data.get('location', '') }}">
-                                <input type="hidden" name="linkedin" value="{{ resume_data.get('linkedin', '') }}">
-                                <input type="hidden" name="website" value="{{ resume_data.get('website', '') }}">
-                                <input type="hidden" name="summary" value="{{ resume_data.get('summary', '') }}">
-                                <input type="hidden" name="experience" id="experience-data" value="">
-                                <input type="hidden" name="education" id="education-data" value="">
-                                <input type="hidden" name="skills" value="{{ resume_data.get('skills', '') }}">
-                                <button type="submit" class="btn btn-success me-2">
-                                    <i class="fas fa-download me-2"></i>Download PDF
-                                </button>
-                            </form>
                             <button class="btn btn-primary" onclick="window.print()">
                                 <i class="fas fa-print me-2"></i>Print
                             </button>

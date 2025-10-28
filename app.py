@@ -9,7 +9,13 @@ import os
 from io import BytesIO
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key-here'
+app.config.update(
+    SECRET_KEY='dev-key-change-this-in-production',
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    PERMANENT_SESSION_LIFETIME=86400  # 1 day in seconds
+)
 
 @app.route('/')
 def index():
@@ -182,4 +188,9 @@ def download_pdf():
     return send_file(buffer, as_attachment=True, download_name=filename, mimetype='application/pdf')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import argparse
+    parser = argparse.ArgumentParser(description='Run the resume builder')
+    parser.add_argument('--port', type=int, default=5000, help='Port to run the application on')
+    args = parser.parse_args()
+    
+    app.run(debug=True, port=args.port)
